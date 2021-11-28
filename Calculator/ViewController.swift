@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Calculator
 //
-//  Created by admin on 28/11/2021.
+//  Created by Doaa Albishri on 28/11/2021.
 //
 
 import UIKit
@@ -73,6 +73,8 @@ class ViewController: UIViewController {
             case "+": TotalLabel.text = String((num1+num2))
                 total =  Double(TotalLabel.text!)!
                 num1 = total
+            case "%":
+                TotalLabel.text = String(num1/100)
             default: print("error")
             }
             bool = false
@@ -95,9 +97,15 @@ class ViewController: UIViewController {
             bool = false
             return
         case "%": TotalLabel.text = TotalLabel.text! + "%"
+            op = "%"
         case "+/-":
-            var num = Double(TotalLabel.text!)!
+            let num = Double(TotalLabel.text!)!
             TotalLabel.text = String(num * -1)
+            if(num1 == num){
+                num1 = num * -1
+            }else{
+              num2 = num * -1
+            }
         default:print("error")
         }
     }
